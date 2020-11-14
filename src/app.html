@@ -1,0 +1,15 @@
+<template>
+  <h1>${message}</h1> 
+
+  <ul> 
+    <li repeat.for="todo of todo">
+      <lable for="done" css="text-decoration: ${todo.done ? 'line-through' : 'none'}">${todo.desc}</lable>
+      <input type="checkbox" name="done" checked.bind="todo.done" />
+      <button click.delegate="deleteTodo(todo)">Delete</button> 
+    </li>
+  </ul>
+
+  <input type="text" value.bind="newTodo" />
+  <button disabled.bind="!newTodo" click.delegate="addTodo()">Add ToDo</button>
+
+</template>
